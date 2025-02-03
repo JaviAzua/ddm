@@ -12,6 +12,11 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        montserrat: ["Montserrat", "sans-serif"],
+        hindMadurai: ["Hind Madurai", "sans-serif"],
+        lora: ["Lora", "serif"],
+      },
     },
   },
   plugins: [],
