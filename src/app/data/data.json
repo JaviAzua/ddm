@@ -1,0 +1,238 @@
+{
+  "folders": [
+    {
+      "id": "01",
+      "title": "Cocina Arelauquen",
+      "description": "Construcción a medida en madera para una Cocina en Arelauquen, ubicada en San Carlos de Bariloche. Un diseño único que combina funcionalidad y estética, utilizando materiales de alta calidad que reflejan el estilo rústico y natural de la región, con acabados personalizados y detalles artesanales.",
+      "images": [
+        {
+          "url": "/data/01/image-1.jpg"
+        },
+        {
+          "url": "/data/01/image-2.jpg"
+        },
+        {
+          "url": "/data/01/image-3.jpg"
+        },
+        {
+          "url": "/data/01/image-4.jpg"
+        },
+        {
+          "url": "/data/01/image-5.jpg"
+        },
+        {
+          "url": "/data/01/image-6.jpg"
+        },
+        {
+          "url": "/data/01/image-7.jpg"
+        },
+        {
+          "url": "/data/01/image-8.jpg"
+        }
+      ]
+    },
+    {
+      "id": "02",
+      "title": "Casa Dos Valles",
+      "description": "Construcción a medida de todos los muebles para un hogar en el barrio Dos Valles, San Carlos de Bariloche. Cada pieza está diseñada con atención al detalle, utilizando madera de calidad y un estilo que combina modernidad con calidez, adaptándose a las necesidades y gustos del cliente.",
+      "images": [
+        {
+          "name": "/data/02/image-1.jpg"
+        },
+        {
+          "name": "/data/02/image-2.jpg"
+        },
+        {
+          "name": "/data/02/image-3.jpg"
+        },
+        {
+          "name": "/data/02/image-4.jpg"
+        },
+        {
+          "name": "/data/02/image-5.jpg"
+        },
+        {
+          "name": "/data/02/image-6.jpg"
+        },
+        {
+          "name": "/data/02/image-7.jpg"
+        },
+        {
+          "name": "/data/02/image-8.jpg"
+        },
+        {
+          "name": "/data/02/image-9.jpg"
+        },
+        {
+          "name": "/data/02/image-10.jpg"
+        },
+        {
+          "name": "/data/02/image-11.jpg"
+        },
+        {
+          "name": "/data/02/image-12.jpg"
+        }
+      ]
+    },
+    {
+      "id": "03",
+      "title": "Escritorio + Cajonero",
+      "description": "Diseño y construcción a medida de un escritorio y cajonero para un espacio de trabajo. Hechos con madera de alta calidad, estos muebles combinan funcionalidad y estilo, ofreciendo un ambiente cómodo y organizado, con acabados personalizados y detalles únicos.",
+      "images": [
+        {
+          "name": "/data/03/image-1.jpg"
+        },
+        {
+          "name": "/data/03/image-2.jpg"
+        },
+        {
+          "name": "/data/03/image-3.jpg"
+        },
+        {
+          "name": "/data/03/image-4.jpg"
+        },
+        {
+          "name": "/data/03/image-5.jpg"
+        }
+      ]
+    },
+    {
+      "id": "04",
+      "title": "Zapatero + Perchero",
+      "description": "Diseño y construcción a medida de un zapatero y perchero. Hechos con madera de calidad, estos muebles ofrecen una solución práctica y elegante para organizar el calzado y las prendas exteriores. Con acabados personalizados, combinan estilo y funcionalidad en cualquier espacio.",
+      "images": [
+        {
+          "name": "/data/04/image-1.jpg"
+        },
+        {
+          "name": "/data/04/image-2.jpg"
+        },
+        {
+          "name": "/data/04/image-3.jpg"
+        },
+        {
+          "name": "/data/04/image-4.jpg"
+        },
+        {
+          "name": "/data/04/image-5.jpg"
+        }
+      ]
+    },
+    {
+      "id": "05",
+      "title": "Cocina Pequeña",
+      "description": "Diseño optimizado para una cocina pequeña, maximizando el espacio con soluciones inteligentes y materiales de alta calidad. Cada detalle ha sido pensado para brindar funcionalidad sin comprometer la estética.",
+      "images": [
+        { "url": "/data/05/image-1.jpg" },
+        { "url": "/data/05/image-2.jpg" },
+        { "url": "/data/05/image-3.jpg" },
+        { "url": "/data/05/image-4.jpg" },
+        { "url": "/data/05/image-5.jpg" },
+        { "url": "/data/05/image-6.jpg" }
+      ]
+    },
+    {
+      "id": "06",
+      "title": "Casa Dos Valles 2",
+      "description": "Segunda construcción para Casa en barrio Dos Valles, con nuevos muebles diseñados a medida para ampliar la funcionalidad y el confort del hogar, manteniendo la estética cálida y moderna del diseño original.",
+      "images": [
+        { "url": "/data/06/image-1.jpg" },
+        { "url": "/data/06/image-2.jpg" },
+        { "url": "/data/06/image-3.jpg" },
+        { "url": "/data/06/image-4.jpg" },
+        { "url": "/data/06/image-5.jpg" },
+        { "url": "/data/06/image-6.jpg" },
+        { "url": "/data/06/image-7.jpg" },
+        { "url": "/data/06/image-8.jpg" },
+        { "url": "/data/06/image-9.jpg" },
+        { "url": "/data/06/image-10.jpg" },
+        { "url": "/data/06/image-11.jpg" },
+        { "url": "/data/06/image-12.jpg" },
+        { "url": "/data/06/image-13.jpg" }
+      ]
+    },
+    {
+      "id": "07",
+      "title": "Biblioratos",
+      "description": "Diseño y construcción de un mueble funcional para biblioratos, optimizando el almacenamiento y organización en oficinas o espacios de trabajo.",
+      "images": [
+        { "url": "/data/07/image-1.jpg" },
+        { "url": "/data/07/image-2.jpg" }
+      ]
+    },
+    {
+      "id": "08",
+      "title": "Escobero en Lenga",
+      "description": "Escobero fabricado en lenga, una madera noble de la Patagonia, ofreciendo durabilidad y un diseño elegante para optimizar el almacenamiento de artículos de limpieza.",
+      "images": [
+        { "url": "/data/08/image-1.jpg" },
+        { "url": "/data/08/image-2.jpg" }
+      ]
+    },
+    {
+      "id": "09",
+      "title": "Rack TV + Equipo de Música",
+      "description": "Un mueble diseñado a medida para organizar un televisor y equipo de música, con espacios específicos para dispositivos y cables, combinando funcionalidad con diseño moderno y materiales de calidad.",
+      "images": [
+        { "url": "/data/09/image-1.jpg" },
+        { "url": "/data/09/image-2.jpg" },
+        { "url": "/data/09/image-3.jpg" },
+        { "url": "/data/09/image-4.jpg" },
+        { "url": "/data/09/image-5.jpg" },
+        { "url": "/data/09/image-6.jpg" },
+        { "url": "/data/09/image-7.jpg" }
+      ]
+    },
+    {
+      "id": "10",
+      "title": "Cajonera",
+      "description": "Diseño y fabricación de una cajonera a medida, combinando estética y funcionalidad con materiales resistentes y un diseño adaptable a distintos espacios.",
+      "images": [
+        { "url": "/data/10/image-1.jpg" },
+        { "url": "/data/10/image-2.jpg" },
+        { "url": "/data/10/image-3.jpg" }
+      ]
+    },
+    {
+      "id": "11",
+      "title": "Rack TV",
+      "description": "Mueble para TV diseñado a medida, con compartimentos funcionales y un diseño moderno que se adapta a distintos estilos de decoración.",
+      "images": [
+        { "url": "/data/11/image-1.jpg" },
+        { "url": "/data/11/image-2.jpg" },
+        { "url": "/data/11/image-3.jpg" },
+        { "url": "/data/11/image-4.jpg" },
+        { "url": "/data/11/image-5.jpg" },
+        { "url": "/data/11/image-6.jpg" }
+      ]
+    },
+    {
+      "id": "12",
+      "title": "Mesitas de Luz",
+      "description": "Fabricación de mesitas de luz a medida, combinando diseño funcional y materiales de calidad para aportar estilo y practicidad a la habitación.",
+      "images": [
+        { "url": "/data/12/image-1.jpg" },
+        { "url": "/data/12/image-2.jpg" },
+        { "url": "/data/12/image-3.jpg" },
+        { "url": "/data/12/image-4.jpg" },
+        { "url": "/data/12/image-5.jpg" }
+      ]
+    },
+    {
+      "id": "13",
+      "title": "Reforma de Cocina",
+      "description": "Remodelación integral de una cocina, incluyendo muebles a medida para mejorar la distribución y funcionalidad del espacio. Se utilizaron materiales de alta calidad para lograr un diseño moderno y duradero.",
+      "images": [
+        { "url": "/data/13/image-1.jpg" },
+        { "url": "/data/13/image-2.jpg" },
+        { "url": "/data/13/image-3.jpg" },
+        { "url": "/data/13/image-4.jpg" },
+        { "url": "/data/13/image-5.jpg" },
+        { "url": "/data/13/image-6.jpg" },
+        { "url": "/data/13/image-7.jpg" },
+        { "url": "/data/13/image-8.jpg" },
+        { "url": "/data/13/image-9.jpg" }
+      ]
+    }
+  ]
+}
