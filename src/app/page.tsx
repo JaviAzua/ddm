@@ -1,9 +1,19 @@
+import ContactForm from "./components/contact-form";
+import HeaderSection from "./components/header-section";
+import WorksSection from "./components/works-section";
+
 export default function Home() {
   return (
-    <div>
-      <p className="font-montserrat font-bold text-5xl">Montserrat</p>
-      <p className="font-lora italic text-5xl">Lora lorem ipsum</p>
-      <p className="font-hindMadurai text-5xl">Hind Madurai lorem ipsum</p>
-    </div>
+    <main className="flex-grow">
+      <div
+        className="pattern-cross pattern-gray-500 pattern-bg-white 
+  pattern-size-8 pattern-opacity-10 h-full w-full fixed top-0 left-0 -z-10"
+      ></div>
+      <div className="h-screen">
+        <HeaderSection />
+      </div>
+      <WorksSection />
+      <ContactForm />
+    </main>
   );
 }

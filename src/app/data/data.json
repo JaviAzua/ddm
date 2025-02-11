@@ -37,40 +37,40 @@
       "description": "Construcción a medida de todos los muebles para un hogar en el barrio Dos Valles, San Carlos de Bariloche. Cada pieza está diseñada con atención al detalle, utilizando madera de calidad y un estilo que combina modernidad con calidez, adaptándose a las necesidades y gustos del cliente.",
       "images": [
         {
-          "name": "/data/02/image-1.jpg"
+          "url": "/data/02/image-1.jpg"
         },
         {
-          "name": "/data/02/image-2.jpg"
+          "url": "/data/02/image-2.jpg"
         },
         {
-          "name": "/data/02/image-3.jpg"
+          "url": "/data/02/image-3.jpg"
         },
         {
-          "name": "/data/02/image-4.jpg"
+          "url": "/data/02/image-4.jpg"
         },
         {
-          "name": "/data/02/image-5.jpg"
+          "url": "/data/02/image-5.jpg"
         },
         {
-          "name": "/data/02/image-6.jpg"
+          "url": "/data/02/image-6.jpg"
         },
         {
-          "name": "/data/02/image-7.jpg"
+          "url": "/data/02/image-7.jpg"
         },
         {
-          "name": "/data/02/image-8.jpg"
+          "url": "/data/02/image-8.jpg"
         },
         {
-          "name": "/data/02/image-9.jpg"
+          "url": "/data/02/image-9.jpg"
         },
         {
-          "name": "/data/02/image-10.jpg"
+          "url": "/data/02/image-10.jpg"
         },
         {
-          "name": "/data/02/image-11.jpg"
+          "url": "/data/02/image-11.jpg"
         },
         {
-          "name": "/data/02/image-12.jpg"
+          "url": "/data/02/image-12.jpg"
         }
       ]
     },
@@ -80,19 +80,19 @@
       "description": "Diseño y construcción a medida de un escritorio y cajonero para un espacio de trabajo. Hechos con madera de alta calidad, estos muebles combinan funcionalidad y estilo, ofreciendo un ambiente cómodo y organizado, con acabados personalizados y detalles únicos.",
       "images": [
         {
-          "name": "/data/03/image-1.jpg"
+          "url": "/data/03/image-1.jpg"
         },
         {
-          "name": "/data/03/image-2.jpg"
+          "url": "/data/03/image-2.jpg"
         },
         {
-          "name": "/data/03/image-3.jpg"
+          "url": "/data/03/image-3.jpg"
         },
         {
-          "name": "/data/03/image-4.jpg"
+          "url": "/data/03/image-4.jpg"
         },
         {
-          "name": "/data/03/image-5.jpg"
+          "url": "/data/03/image-5.jpg"
         }
       ]
     },
@@ -102,19 +102,19 @@
       "description": "Diseño y construcción a medida de un zapatero y perchero. Hechos con madera de calidad, estos muebles ofrecen una solución práctica y elegante para organizar el calzado y las prendas exteriores. Con acabados personalizados, combinan estilo y funcionalidad en cualquier espacio.",
       "images": [
         {
-          "name": "/data/04/image-1.jpg"
+          "url": "/data/04/image-1.jpg"
         },
         {
-          "name": "/data/04/image-2.jpg"
+          "url": "/data/04/image-2.jpg"
         },
         {
-          "name": "/data/04/image-3.jpg"
+          "url": "/data/04/image-3.jpg"
         },
         {
-          "name": "/data/04/image-4.jpg"
+          "url": "/data/04/image-4.jpg"
         },
         {
-          "name": "/data/04/image-5.jpg"
+          "url": "/data/04/image-5.jpg"
         }
       ]
     },

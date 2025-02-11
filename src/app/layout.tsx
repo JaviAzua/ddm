@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { config } from "../../env";
+import Navbar from "./components/navbar";
+import Footer from "./components/footer";
+import { Toaster } from "react-hot-toast";
 
 export const metadata: Metadata = {
   title: "DDM Bariloche | Muebles a medida",
@@ -63,7 +66,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={`antialiased`}>{children}</body>
+      <body className="antialiased flex flex-col min-h-screen overflow-x-hidden">
+        <Navbar />
+        {children}
+        <Footer />
+        <Toaster />
+      </body>
     </html>
   );
 }
