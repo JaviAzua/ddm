@@ -7,7 +7,7 @@ export async function POST(request: Request) {
   try {
     const { name, email, message } = await request.json();
     const data = await resend.emails.send({
-      from: "DDM Muebles WEB <noreply@azuaj.com>",
+      from: "DDM Muebles WEB <noreply@mueblesddm.com>",
       to: ["ddmueblesventas@gmail.com"],
       subject: "Nueva consulta hecha mediante la web",
       html: `
