@@ -25,7 +25,7 @@ export default function WorksPage() {
   const works = data.folders;
 
   return (
-    <div className="container mx-auto px-4 pt-20 flex-grow flex flex-col h-screen">
+    <div className="container mx-auto px-4 pt-20 flex-grow flex flex-col h-[400vh] md:h-[300vh] lg:h-[200vh]">
       <div
         className="pattern-cross pattern-gray-500 pattern-bg-white 
   pattern-size-8 pattern-opacity-10 h-full w-full fixed top-0 left-0 -z-10"

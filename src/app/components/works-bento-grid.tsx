@@ -14,19 +14,19 @@ interface WorksBentoGridProps {
 }
 
 const gridItems = [
-  "col-span-1 row-span-1 md:col-span-2 md:row-span-2",
-  "col-span-1 row-span-1 md:col-span-2 md:row-span-2",
-  "col-span-1 row-span-1 md:col-span-1 md:row-span-2",
-  "col-span-1 row-span-1 md:col-span-1 md:row-span-2",
-  "col-span-1 row-span-1 md:col-span-1 md:row-span-2",
-  "col-span-1 row-span-1 md:col-span-1 md:row-span-2",
-  "col-span-1 row-span-1 md:col-span-2 md:row-span-1",
-  "col-span-1 row-span-1 md:col-span-1 md:row-span-3",
-  "col-span-1 row-span-1 md:col-span-1 md:row-span-3",
-  "col-span-1 row-span-1 md:col-span-2 md:row-span-2",
-  "col-span-1 row-span-1 md:col-span-4 md:row-span-2",
-  "col-span-1 row-span-1 md:col-span-1 md:row-span-2",
-  "col-span-1 row-span-1 md:col-span-3 md:row-span-2",
+  "col-span-1 row-span-2 md:col-span-2 md:row-span-2",
+  "col-span-1 row-span-2 md:col-span-2 md:row-span-2",
+  "col-span-1 row-span-2 md:col-span-1 md:row-span-2",
+  "col-span-1 row-span-2 md:col-span-1 md:row-span-2",
+  "col-span-1 row-span-2 md:col-span-1 md:row-span-2",
+  "col-span-1 row-span-2 md:col-span-1 md:row-span-2",
+  "col-span-1 row-span-2 md:col-span-2 md:row-span-1",
+  "col-span-1 row-span-2 md:col-span-1 md:row-span-3",
+  "col-span-1 row-span-2 md:col-span-1 md:row-span-3",
+  "col-span-1 row-span-2 md:col-span-2 md:row-span-2",
+  "col-span-1 row-span-2 md:col-span-4 md:row-span-2",
+  "col-span-1 row-span-2 md:col-span-1 md:row-span-2",
+  "col-span-1 row-span-2 md:col-span-3 md:row-span-2",
 ];
 
 const WorksBentoGrid: React.FC<WorksBentoGridProps> = ({ works }) => {

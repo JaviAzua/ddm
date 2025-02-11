@@ -1,14 +1,13 @@
 "use client";
-
-import type React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { Instagram } from "lucide-react"; // Import icons
 
 function Footer() {
   return (
     <footer className="bg-gray-900 text-white">
-      <div className="container mx-auto px-4 py-8 h-[30vh] flex flex-col justify-between">
+      <div className="container mx-auto px-4 py-8 min-h-[30vh] flex flex-col justify-between">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -30,7 +29,7 @@ function Footer() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex flex-wrap justify-center md:justify-end gap-6"
+            className="flex flex-wrap justify-center md:justify-end gap-6 items-center"
           >
             <Link
               href="/trabajos"
@@ -44,6 +43,15 @@ function Footer() {
             >
               Contacto
             </Link>
+            <a
+              href="https://www.instagram.com/ddmbariloche/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-gray-300 transition-colors"
+              aria-label="Instagram"
+            >
+              <Instagram size={24} />
+            </a>
           </motion.nav>
         </div>
         <motion.div
