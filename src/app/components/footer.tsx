@@ -2,7 +2,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Instagram } from "lucide-react"; // Import icons
+import WhatsAppLogo from "./whatsapp-logo";
+import { InstagramLogo } from "./instagram-logo";
 
 function Footer() {
   return (
@@ -25,34 +26,64 @@ function Footer() {
               />
             </Link>
           </motion.div>
-          <motion.nav
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex flex-wrap justify-center md:justify-end gap-6 items-center"
-          >
-            <Link
-              href="/trabajos"
-              className="hover:text-gray-300 transition-colors"
+          <nav className="flex-col gap-2 flex">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="flex flex-wrap justify-center md:justify-end gap-6 items-center"
             >
-              Trabajos
-            </Link>
-            <Link
-              href="/#contacto"
-              className="hover:text-gray-300 transition-colors"
-            >
-              Contacto
-            </Link>
+              <Link
+                href="/trabajos"
+                className="hover:text-gray-300 transition-colors"
+              >
+                Trabajos
+              </Link>
+              {" | "}
+              <Link
+                href="/#contacto"
+                className="hover:text-gray-300 transition-colors"
+              >
+                Contacto
+              </Link>
+            </motion.div>
+
             <a
-              href="https://www.instagram.com/ddmbariloche/"
               target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-gray-300 transition-colors"
-              aria-label="Instagram"
+              href="mailto:mail@mail.com"
+              className="hover:underline text-center md:text-right font-inter text-sm"
             >
-              <Instagram size={24} />
+              ddmueblesventas@gmail.com
             </a>
-          </motion.nav>
+            <a
+              target="_blank"
+              href="tel:+5492944696969"
+              className="hover:underline text-center md:text-right font-inter text-sm"
+            >
+              +54 9 294 4 69 69 69
+            </a>
+
+            <div className="flex gap-4 justify-center md:justify-end">
+              <a
+                href="https://www.instagram.com/ddmbariloche/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:scale-110 transition-all"
+                aria-label="Instagram"
+              >
+                <InstagramLogo />
+              </a>
+              <a
+                href="https://www.instagram.com/ddmbariloche/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:scale-110 transition-all"
+                aria-label="WhatsApp"
+              >
+                <WhatsAppLogo />
+              </a>
+            </div>
+          </nav>
         </div>
         <motion.div
           initial={{ opacity: 0 }}
@@ -67,10 +98,6 @@ function Footer() {
           <p className="mt-2">
             <a href="/privacy-policy" className="hover:underline">
               Política de Privacidad
-            </a>
-            {" | "}
-            <a href="/terms-of-service" className="hover:underline">
-              Términos de Servicio
             </a>
           </p>
         </motion.div>

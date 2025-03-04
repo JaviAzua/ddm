@@ -5,19 +5,17 @@ import { useMemo } from "react";
 import { motion } from "framer-motion";
 import ResponsiveLogo from "./responsive-logo";
 
-const images = [
-  "/banner/image-1.jpg",
-  "/banner/image-2.jpg",
-  "/banner/image-3.jpg",
-  "/banner/image-4.jpg",
-  "/banner/image-5.jpg",
-];
-
 function HeaderSection() {
-  const randomImage = useMemo(
-    () => images[Math.floor(Math.random() * images.length)],
-    []
-  );
+  const randomImage = useMemo(() => {
+    const images = [
+      "/banner/image-1.jpg",
+      "/banner/image-2.jpg",
+      "/banner/image-3.jpg",
+      "/banner/image-4.jpg",
+      "/banner/image-5.jpg",
+    ];
+    return images[Math.floor(Math.random() * images.length)];
+  }, []);
 
   const titleVariants = {
     hidden: { y: 30, opacity: 0 },
