@@ -27,10 +27,10 @@ const Navbar = () => {
 
   return (
     <motion.nav
-      className={`fixed z-50 w-full transition-colors duration-300 ${
+      className={`fixed w-full transition-colors duration-300 ${
         isScrolled ? "bg-black" : "bg-black/10"
       }`}
-      initial={{ y: -100 }}
+      initial={{ y: -100, zIndex: 60 }}
       animate={{ y: 0 }}
       transition={{ type: "spring", stiffness: 100, damping: 20, delay: 1.6 }}
     >
