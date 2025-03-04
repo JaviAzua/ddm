@@ -14,6 +14,8 @@ export const metadata: Metadata = {
     "ddm bariloche",
     "bariloche",
     "muebles",
+    "madera",
+    "melamina",
     "muebles de madera",
     "muebles de melamina",
     "diseño de interiores",
