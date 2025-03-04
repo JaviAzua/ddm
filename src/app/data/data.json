@@ -3,131 +3,63 @@
     {
       "id": "01",
       "title": "Cocina Barrio Privado",
-      "description": "Construcción a medida en madera para una Cocina en Arelauquen, ubicada en San Carlos de Bariloche. Un diseño único que combina funcionalidad y estética, utilizando materiales de alta calidad que reflejan el estilo rústico y natural de la región, con acabados personalizados y detalles artesanales.",
+      "description": "Construcción a medida en madera para una cocina en Arelauquen, Bariloche. Un diseño único que combina funcionalidad y estética, utilizando materiales de alta calidad que reflejan el estilo rústico y natural de la región, con acabados personalizados y detalles artesanales.",
       "images": [
-        {
-          "url": "/data/01/image-1.jpg"
-        },
-        {
-          "url": "/data/01/image-2.jpg"
-        },
-        {
-          "url": "/data/01/image-3.jpg"
-        },
-        {
-          "url": "/data/01/image-4.jpg"
-        },
-        {
-          "url": "/data/01/image-5.jpg"
-        },
-        {
-          "url": "/data/01/image-6.jpg"
-        }
+        { "url": "/data/01/image-1.jpg" },
+        { "url": "/data/01/image-2.jpg" },
+        { "url": "/data/01/image-3.jpg" },
+        { "url": "/data/01/image-4.jpg" },
+        { "url": "/data/01/image-5.jpg" },
+        { "url": "/data/01/image-6.jpg" }
       ]
     },
     {
       "id": "02",
       "title": "Cocina Pequeña",
-      "description": "Construcción a medida de todos los muebles para un hogar en el barrio Dos Valles, San Carlos de Bariloche. Cada pieza está diseñada con atención al detalle, utilizando madera de calidad y un estilo que combina modernidad con calidez, adaptándose a las necesidades y gustos del cliente.",
+      "description": "Construcción a medida de todos los muebles para un hogar en el barrio Dos Valles, Bariloche. Cada pieza está diseñada con atención al detalle, utilizando madera de calidad y un estilo que combina modernidad con calidez, adaptándose a las necesidades y gustos del cliente.",
       "images": [
-        {
-          "url": "/data/02/image-1.jpg"
-        },
-        {
-          "url": "/data/02/image-2.jpg"
-        },
-        {
-          "url": "/data/02/image-3.jpg"
-        },
-        {
-          "url": "/data/02/image-4.jpg"
-        }
+        { "url": "/data/02/image-1.jpg" },
+        { "url": "/data/02/image-2.jpg" },
+        { "url": "/data/02/image-3.jpg" },
+        { "url": "/data/02/image-4.jpg" }
       ]
     },
     {
       "id": "03",
       "title": "Cocina Vivienda Familiar",
-      "description": "Diseño y construcción a medida de un escritorio y cajonero para un espacio de trabajo. Hechos con madera de alta calidad, estos muebles combinan funcionalidad y estilo, ofreciendo un ambiente cómodo y organizado, con acabados personalizados y detalles únicos.",
+      "description": "Diseño y construcción a medida de una cocina completa para una vivienda familiar, usando materiales de alta calidad que ofrecen durabilidad y un estilo moderno pero cálido, adaptado a las necesidades de la familia.",
       "images": [
-        {
-          "url": "/data/03/image-1.jpg"
-        },
-        {
-          "url": "/data/03/image-2.jpg"
-        },
-        {
-          "url": "/data/03/image-3.jpg"
-        },
-        {
-          "url": "/data/03/image-4.jpg"
-        },
-        {
-          "url": "/data/03/image-5.jpg"
-        },
-        {
-          "url": "/data/03/image-6.jpg"
-        }
+        { "url": "/data/03/image-1.jpg" },
+        { "url": "/data/03/image-2.jpg" },
+        { "url": "/data/03/image-3.jpg" },
+        { "url": "/data/03/image-4.jpg" },
+        { "url": "/data/03/image-5.jpg" },
+        { "url": "/data/03/image-6.jpg" }
       ]
     },
     {
       "id": "04",
       "title": "Diseño de Mobiliario Casa Dos Valles",
-      "description": "Diseño y construcción a medida de un zapatero y perchero. Hechos con madera de calidad, estos muebles ofrecen una solución práctica y elegante para organizar el calzado y las prendas exteriores. Con acabados personalizados, combinan estilo y funcionalidad en cualquier espacio.",
+      "description": "Diseño y construcción a medida de muebles para una casa en el barrio Dos Valles, Bariloche. Incluye un zapatero y perchero fabricados con madera de calidad, combinando funcionalidad y estilo para optimizar el espacio.",
       "images": [
-        {
-          "url": "/data/04/image-1.jpg"
-        },
-        {
-          "url": "/data/04/image-2.jpg"
-        },
-        {
-          "url": "/data/04/image-3.jpg"
-        },
-        {
-          "url": "/data/04/image-4.jpg"
-        },
-        {
-          "url": "/data/04/image-5.jpg"
-        },
-        {
-          "url": "/data/04/image-6.jpg"
-        },
-        {
-          "url": "/data/04/image-7.jpg"
-        },
-        {
-          "url": "/data/04/image-8.jpg"
-        },
-        {
-          "url": "/data/04/image-9.jpg"
-        },
-        {
-          "url": "/data/04/image-10.jpg"
-        },
-        {
-          "url": "/data/04/image-11.jpg"
-        },
-        {
-          "url": "/data/04/image-12.jpg"
-        },
-        {
-          "url": "/data/04/image-13.jpg"
-        },
-        {
-          "url": "/data/04/image-14.jpg"
-        },
-        {
-          "url": "/data/04/image-15.jpg"
-        },
-        {
-          "url": "/data/04/image-16.jpg"
-        },
-        {
-          "url": "/data/04/image-17.jpg"
-        },
-        {
-          "url": "/data/04/image-18.jpg"
-        }
+        { "url": "/data/04/image-1.jpg" },
+        { "url": "/data/04/image-2.jpg" },
+        { "url": "/data/04/image-3.jpg" },
+        { "url": "/data/04/image-4.jpg" },
+        { "url": "/data/04/image-5.jpg" },
+        { "url": "/data/04/image-6.jpg" },
+        { "url": "/data/04/image-7.jpg" },
+        { "url": "/data/04/image-8.jpg" },
+        { "url": "/data/04/image-9.jpg" },
+        { "url": "/data/04/image-10.jpg" },
+        { "url": "/data/04/image-11.jpg" },
+        { "url": "/data/04/image-12.jpg" },
+        { "url": "/data/04/image-13.jpg" },
+        { "url": "/data/04/image-14.jpg" },
+        { "url": "/data/04/image-15.jpg" },
+        { "url": "/data/04/image-16.jpg" },
+        { "url": "/data/04/image-17.jpg" },
+        { "url": "/data/04/image-18.jpg" }
       ]
     },
     {
@@ -161,7 +93,7 @@
     {
       "id": "06",
       "title": "Diseño Mobiliario de Oficina",
-      "description": "Segunda construcción para Casa en barrio Dos Valles, con nuevos muebles diseñados a medida para ampliar la funcionalidad y el confort del hogar, manteniendo la estética cálida y moderna del diseño original.",
+      "description": "Segunda construcción para casa en barrio Dos Valles, con nuevos muebles diseñados a medida para ampliar la funcionalidad y el confort del hogar, manteniendo la estética cálida y moderna del diseño original.",
       "images": [
         { "url": "/data/06/image-1.jpg" },
         { "url": "/data/06/image-2.jpg" },
@@ -222,7 +154,8 @@
       "images": [
         { "url": "/data/09/image-1.jpg" },
         { "url": "/data/09/image-2.jpg" },
-        { "url": "/data/09/image-3.jpg" }
+        { "url": "/data/09/image-3.jpg" },
+        { "url": "/data/09/image-4.jpg" }
       ]
     },
     {
@@ -232,7 +165,8 @@
       "images": [
         { "url": "/data/10/image-1.jpg" },
         { "url": "/data/10/image-2.jpg" },
-        { "url": "/data/10/image-3.jpg" }
+        { "url": "/data/10/image-3.jpg" },
+        { "url": "/data/10/image-4.jpg" }
       ]
     },
     {
