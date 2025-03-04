@@ -141,7 +141,7 @@ const WorkDetail: React.FC<WorkDetailProps> = ({ work }) => {
           }
         }}
       >
-        <DialogContent className="p-0 max-w-[95vw] h-[95vh] overflow-hidden flex flex-col bg-black/50 backdrop-blur-3xl">
+        <DialogContent className="p-0 max-w-[95vw] h-[95vh] overflow-hidden flex flex-col bg-black/50 backdrop-blur-3xl z-[99]">
           <DialogTitle className="sr-only">Detailed Work</DialogTitle>
           <div className="relative flex-1 flex items-center justify-center">
             {currentImage && (
