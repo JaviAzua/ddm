@@ -13,6 +13,7 @@ export const metadata: Metadata = {
     "ddm",
     "ddm bariloche",
     "bariloche",
+    "muebles",
     "muebles de madera",
     "muebles de melamina",
     "diseño de interiores",
@@ -41,7 +42,7 @@ export const metadata: Metadata = {
     title: "DDM Bariloche | Muebles a medida",
     description:
       "Explora nuestra colección de muebles de madera y melamina con diseños exclusivos.",
-    images: `${config.BASE_URL}/og-image.jpg`,
+    images: [`${config.BASE_URL}/og-image.jpg`],
   },
   robots: "index, follow",
   alternates: {
@@ -51,12 +52,36 @@ export const metadata: Metadata = {
     {
       url: `${config.BASE_URL}/ddmblack.ico`,
       media: "(prefers-color-scheme: light)",
+      rel: "icon",
+      sizes: "32x32",
+      type: "image/x-icon",
     },
     {
       url: `${config.BASE_URL}/ddmwhite.ico`,
       media: "(prefers-color-scheme: dark)",
+      rel: "icon",
+      sizes: "32x32",
+      type: "image/x-icon",
+    },
+    {
+      url: `${config.BASE_URL}/favicon.svg`,
+      type: "image/svg+xml",
+    },
+    {
+      url: `${config.BASE_URL}/apple-touch-icon.png`,
+      sizes: "180x180",
+      rel: "apple-touch-icon",
     },
   ],
+  other: {
+    "application/ld+json": JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: "DDM Bariloche",
+      url: config.BASE_URL,
+      logo: `${config.BASE_URL}/logo.png`,
+    }),
+  },
 };
 
 export default function RootLayout({
