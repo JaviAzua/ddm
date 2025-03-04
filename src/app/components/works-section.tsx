@@ -14,7 +14,7 @@ function WorksSection() {
     >
       <div className="flex flex-wrap justify-between items-center mt-20 container mx-auto">
         <motion.h1
-          className="text-5xl md:text-6xl xl:text-7xl font-bold font-hindMadurai"
+          className="text-5xl md:text-6xl xl:text-7xl font-bold font-inter"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -30,7 +30,7 @@ function WorksSection() {
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           <Link href="/trabajos" passHref>
-            <span className="text-xl md:text-2xl font-hindMadurai text-gray-700 hover:text-black transition-all">
+            <span className="text-xl md:text-2xl font-inter text-gray-700 hover:text-black transition-all">
               Ver todos
             </span>
           </Link>

@@ -46,7 +46,7 @@ const ContactForm: React.FC = () => {
       id="contacto"
     >
       <motion.h1
-        className="text-5xl md:text-6xl xl:text-7xl py-4 font-bold font-hindMadurai mt-20"
+        className="text-5xl md:text-6xl xl:text-7xl py-4 font-bold font-inter mt-20"
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}

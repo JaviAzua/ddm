@@ -1,10 +1,6 @@
 @import "@fontsource-variable/montserrat/wght-italic.css";
 @import "@fontsource-variable/lora/wght-italic.css";
-@import "@fontsource/hind-madurai/300.css";
-@import "@fontsource/hind-madurai/400.css";
-@import "@fontsource/hind-madurai/500.css";
-@import "@fontsource/hind-madurai/600.css";
-@import "@fontsource/hind-madurai/700.css";
+@import "@fontsource-variable/inter";
 
 @tailwind base;
 @tailwind components;
