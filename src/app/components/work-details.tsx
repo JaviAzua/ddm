@@ -136,12 +136,11 @@ const WorkDetail: React.FC<WorkDetailProps> = ({ work }) => {
         onOpenChange={(open) => {
           setDialogOpen(open);
           if (!open) {
-            // Si el diálogo se cierra, eliminamos el parámetro de la URL
             updateImageIndex(null);
           }
         }}
       >
-        <DialogContent className="p-0 max-w-[95vw] h-[95vh] overflow-hidden flex flex-col bg-black/50 backdrop-blur-3xl z-[99]">
+        <DialogContent className="p-0 max-w-[95vw] h-[80vh] md:h-[95vh] overflow-hidden flex flex-col bg-black/50 backdrop-blur-3xl z-[99]">
           <DialogTitle className="sr-only">Detailed Work</DialogTitle>
           <div className="relative flex-1 flex items-center justify-center">
             {currentImage && (
@@ -184,11 +183,11 @@ const WorkDetail: React.FC<WorkDetailProps> = ({ work }) => {
 
             <Button
               variant="ghost"
-              size="icon"
-              className="absolute right-2 top-2 bg-black/50 hover:bg-black/70 text-white rounded-full"
+              size="lg"
+              className="absolute group right-2 top-2 bg-black/50 hover:bg-black/70 text-white hover:text-white"
               onClick={closeDialog}
             >
-              <X className="h-4 w-4" />
+              <X className="group-hover:scale-110 transition-all" />
               <span className="sr-only">Close dialog</span>
             </Button>
           </div>

@@ -165,8 +165,7 @@
       "images": [
         { "url": "/data/10/image-1.jpg" },
         { "url": "/data/10/image-2.jpg" },
-        { "url": "/data/10/image-3.jpg" },
-        { "url": "/data/10/image-4.jpg" }
+        { "url": "/data/10/image-3.jpg" }
       ]
     },
     {
