@@ -50,17 +50,17 @@ function Footer() {
 
             <a
               target="_blank"
-              href="mailto:mail@mail.com"
+              href="mailto:ddmueblesventas@gmail.com"
               className="hover:underline text-center md:text-right font-inter text-sm"
             >
               ddmueblesventas@gmail.com
             </a>
             <a
               target="_blank"
-              href="tel:+5492944696969"
+              href="https://api.whatsapp.com/send/?phone=2944608655&text&type=phone_number&app_absent=0"
               className="hover:underline text-center md:text-right font-inter text-sm"
             >
-              +54 9 294 4 69 69 69
+              +54 9 2944 60865
             </a>
 
             <div className="flex gap-4 justify-center md:justify-end">
@@ -74,7 +74,7 @@ function Footer() {
                 <InstagramLogo />
               </a>
               <a
-                href="https://www.instagram.com/ddmbariloche/"
+                href="https://api.whatsapp.com/send/?phone=2944608655&text&type=phone_number&app_absent=0"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:scale-110 transition-all"
