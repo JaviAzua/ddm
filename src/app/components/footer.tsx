@@ -57,7 +57,7 @@ function Footer() {
             </a>
             <a
               target="_blank"
-              href="https://api.whatsapp.com/send/?phone=2944608655&text&type=phone_number&app_absent=0"
+              href="https://api.whatsapp.com/send/?phone=5492944608655&text&type=phone_number&app_absent=0"
               className="hover:underline text-center md:text-right font-inter text-sm"
             >
               +54 9 2944 60865
@@ -74,7 +74,7 @@ function Footer() {
                 <InstagramLogo />
               </a>
               <a
-                href="https://api.whatsapp.com/send/?phone=2944608655&text&type=phone_number&app_absent=0"
+                href="https://api.whatsapp.com/send/?phone=5492944608655&text&type=phone_number&app_absent=0"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:scale-110 transition-all"
