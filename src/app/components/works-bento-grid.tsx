@@ -31,7 +31,7 @@ const gridItems = [
 
 const WorksBentoGrid: React.FC<WorksBentoGridProps> = ({ works }) => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 p-4 flex-grow">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 p-4 grow">
       {works.slice(0, gridItems.length).map((work, index) => (
         <div key={work.id} className={`w-full ${gridItems[index]}`}>
           <WorkCard

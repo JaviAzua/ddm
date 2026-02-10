@@ -55,7 +55,7 @@ const ContactForm: React.FC = () => {
         Contacto
       </motion.h1>
       <motion.div
-        className="w-full p-8 bg-white shadow-md border flex-grow mb-10"
+        className="w-full p-8 bg-white shadow-md border grow mb-10"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}

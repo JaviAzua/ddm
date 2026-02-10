@@ -43,7 +43,7 @@ function HeaderSection() {
 
   return (
     <section className="relative min-h-[85dvh] max-h-[85dvh]">
-      <div className="absolute inset-y-1/2 inset-x-0 bottom-0 bg-gradient-to-b from-transparent to-white z-10"></div>
+      <div className="absolute inset-y-1/2 inset-x-0 bottom-0 bg-linear-to-b from-transparent to-white z-10"></div>
       <Image
         src={randomImage || "/placeholder.svg"}
         alt="Imagen header de DDM | Bariloche"

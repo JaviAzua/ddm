@@ -37,7 +37,7 @@ function WorksSection() {
         </motion.div>
       </div>
 
-      <div className="flex-grow grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 relative mt-8">
+      <div className="grow grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 relative mt-8">
         {works.map((work, index) => (
           <WorkCard
             id={work.id}

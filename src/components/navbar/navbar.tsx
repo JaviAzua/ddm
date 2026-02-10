@@ -37,7 +37,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="flex-1 flex-shrink-0">
+          <div className="flex-1 shrink-0">
             <Link href="/" aria-label="Home">
               <motion.div whileTap={{ scale: 0.9 }}>
                 <Image
@@ -45,7 +45,7 @@ const Navbar = () => {
                   alt="DDM Logo"
                   width={60}
                   height={60}
-                  className="rounded-full invert hover:rotate-[360deg] transition-all duration-300"
+                  className="rounded-full invert hover:rotate-360 transition-all duration-300"
                   priority
                 />
               </motion.div>
@@ -90,7 +90,7 @@ const Navbar = () => {
           <div className="md:hidden">
             <motion.button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-gray-300 hover:bg-black/20 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+              className="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-gray-300 hover:bg-black/20 focus:outline-hidden focus:ring-2 focus:ring-inset focus:ring-white"
               whileTap={{ scale: 0.95 }}
               aria-expanded={isMenuOpen}
               aria-label="Toggle menu"
