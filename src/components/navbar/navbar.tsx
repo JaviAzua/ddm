@@ -28,7 +28,7 @@ const Navbar = () => {
   return (
     <motion.nav
       className={`fixed w-full transition-colors duration-300 ${
-        isScrolled ? "bg-black" : "bg-black/10"
+        isScrolled ? "bg-base-black" : "bg-base-black/10"
       }`}
       initial={{ y: -100, zIndex: 60 }}
       animate={{ y: 0 }}

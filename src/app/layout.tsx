@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { config } from "../../env";
-import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 import { Toaster } from "react-hot-toast";
+import Navbar from "@/components/navbar/navbar";
 
 export const metadata: Metadata = {
   title: "DDM Bariloche | Muebles a medida",
