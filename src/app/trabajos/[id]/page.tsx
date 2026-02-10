@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import data from "@/app/data/data.json";
+
 import WorkDetail from "@/app/components/work-details";
 import { config } from "../../../../env";
+import { works } from "@/app/data/data";
 
 interface Props {
   params: Promise<{ id: string }>;
@@ -10,7 +11,7 @@ interface Props {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
-  const work = data.folders.find((folder) => folder.id === id);
+  const work = works.find((work) => work.id === id);
 
   if (!work) {
     return {
@@ -38,7 +39,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function WorkPage({ params }: Props) {
   const { id } = await params;
-  const work = data.folders.find((folder) => folder.id === id);
+  const work = works.find((work) => work.id === id);
 
   if (!work) {
     notFound();

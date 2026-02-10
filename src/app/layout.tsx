@@ -3,7 +3,6 @@ import "./globals.css";
 import { config } from "../../env";
 import Footer from "./components/footer";
 import { Toaster } from "react-hot-toast";
-import Navbar from "@/components/navbar/navbar";
 
 export const metadata: Metadata = {
   title: "DDM Bariloche | Muebles a medida",
@@ -93,10 +92,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className="antialiased flex flex-col min-h-screen overflow-x-hidden">
-        <Navbar />
+      <body className="bg-base-white">
         {children}
-        <Footer />
+        <div className="pt-10">
+          <Footer />
+        </div>
         <Toaster />
       </body>
     </html>

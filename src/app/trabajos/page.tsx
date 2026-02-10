@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import data from "@/app/data/data.json";
 import WorksBentoGrid from "../components/works-bento-grid";
+import { works } from "../data/data";
 
 export const metadata: Metadata = {
   title: "Nuestros Trabajos | DDM Muebles a Medida",
@@ -22,8 +22,6 @@ export const metadata: Metadata = {
 };
 
 export default function WorksPage() {
-  const works = data.folders;
-
   return (
     <div className="container mx-auto px-4 pt-20 grow flex flex-col h-[400vh] md:h-[300vh] lg:h-[200vh]">
       <div

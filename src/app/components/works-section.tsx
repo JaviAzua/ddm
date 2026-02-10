@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import data from "@/app/data/data.json";
+import data from "@/app/data/data";
 import WorkCard from "./work-card";
 import Link from "next/link";
 
