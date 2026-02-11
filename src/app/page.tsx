@@ -5,10 +5,15 @@ import HeaderSection from "./components/header-section";
 import ScrollIndicator from "./components/scroll-indicator";
 import WorksSection from "./components/works-section";
 import Navbar from "@/components/navbar/navbar";
+import Footer from "./components/footer";
 
 export default function Home() {
   return (
     <main className="flex flex-col h-screen">
+      <h1 className="sr-only">
+        DDM Bariloche - web de muebles a medida en madera y melamina con diseños
+        personalizados en la ciudad de Bariloche, Argentina
+      </h1>
       <Navbar />
       <HeroSection />
       {/* <BaseAnimation />

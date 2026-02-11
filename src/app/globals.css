@@ -10,7 +10,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --color-base-white: #dfdfdf;
+  --color-base-white: #f8f7f5;
   --color-base-black: #231f20;
   --color-base-gray: #98979a;
   --color-light-gray: #acacac;

@@ -1,17 +1,25 @@
 "use client";
 
+import { motion } from "framer-motion";
+
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import DDMLogo from "../ddm-logo";
 import BurguerMenuIcon from "./burguer-menu-icon";
+import { useAnimation } from "@/context/animation-context";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { showWelcome } = useAnimation();
   const pathname = usePathname();
 
   return (
-    <nav>
+    <motion.nav
+      initial={{ opacity: 0, y: -50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: showWelcome ? 1.5 : 0.2 }}
+    >
       <section className="flex justify-between items-center max-w-[95%] mx-auto text-base-black">
         <Link href="/" aria-label="Home" className="flex gap-2 items-center">
           <DDMLogo className="w-32" />
@@ -20,7 +28,7 @@ const Navbar = () => {
             <span className="text-sm font-inter">Muebles a medida</span>
           </div>
         </Link>
-        <section className="flex items-center justify-between gap-10 group min-w-[30vh]">
+        <section className="flex items-center justify-evenly gap-10 group min-w-[30vh]">
           <span
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-expanded={isMenuOpen}
@@ -68,7 +76,7 @@ const Navbar = () => {
       )}
       
       */}
-    </nav>
+    </motion.nav>
   );
 };
 

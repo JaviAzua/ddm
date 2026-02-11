@@ -13,14 +13,14 @@ function ProjectsCarousel({ works }: { works: WorkType[] }) {
   return (
     <Carousel className="h-full">
       <CarouselContent className="h-full">
-        {works.map((work) => (
+        {works.map((work, i) => (
           <CarouselItem
             className="basis-1/3 group cursor-pointer"
             key={work.id}
           >
             <div className="flex flex-col h-full opacity-100 transition-all duration-400 bg-base-gray group-hover:bg-light-gray p-4">
               <span className="shrink-0 text-sm font-inter w-fit px-2 py-1">
-                ({work.id})
+                ({String(i + 1).padStart(2, "0")})
               </span>
               <h3 className="shrink-0 text-base font-inter pt-2 font-semibold">
                 {work.title}
