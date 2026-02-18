@@ -81,6 +81,15 @@
   body {
     font-family: Arial, Helvetica, sans-serif;
   }
+  .titles-text {
+    @apply font-lora text-4xl md:text-5xl lg:text-8xl xl:text-9xl font-bold tracking-widest;
+  }
+  .subtitles-text {
+    @apply font-inter text-base md:text-xl lg:text-2xl text-balance text-right tracking-tighter relative;
+  }
+  .section-20vh {
+    @apply md:min-w-[30vw] md:max-w-[30vw] lg:min-w-[20vw] lg:max-w-[20vw];
+  }
 }
 
 @layer base {

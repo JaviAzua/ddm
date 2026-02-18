@@ -10,7 +10,7 @@ function Footer() {
   return (
     <div className="pt-10">
       <footer className="bg-base-black text-base-white">
-        <div className="container mx-auto px-4 py-8 min-h-[30vh] flex flex-col justify-between">
+        <div className="container mx-auto p-4 flex flex-col justify-between">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}

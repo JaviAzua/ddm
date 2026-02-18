@@ -23,17 +23,17 @@ const Navbar = () => {
       <section className="flex justify-between items-center max-w-[95%] mx-auto text-base-black">
         <Link href="/" aria-label="Home" className="flex gap-2 items-center">
           <DDMLogo className="w-32" />
-          <div className="flex flex-col">
+          <div className="hidden flex-col md:flex">
             <span className="text-sm font-inter font-bold">DDM Bariloche</span>
             <span className="text-sm font-inter">Muebles a medida</span>
           </div>
         </Link>
-        <section className="flex items-center justify-evenly gap-10 group min-w-[30vh]">
+        <section className="flex items-center justify-evenly gap-10 group md:min-w-[30vh]">
           <span
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-expanded={isMenuOpen}
             aria-label="Toggle menu"
-            className="font-montserrat cursor-pointer tracking-wide relative inline-block after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-current after:transition-[width] after:duration-300 group-hover:after:w-full"
+            className="hidden md:inline-block font-montserrat cursor-pointer tracking-wide relative after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-current after:transition-[width] after:duration-300 group-hover:after:w-full"
           >
             MENU
           </span>

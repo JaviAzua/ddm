@@ -4,6 +4,7 @@ import { works } from "@/app/data/data";
 import ProjectsCarousel from "./projects-carousel";
 import { motion } from "framer-motion";
 import { useAnimation } from "@/context/animation-context";
+import { getTransition } from "@/utils";
 
 function HeroSection() {
   const { showWelcome } = useAnimation();
@@ -20,48 +21,30 @@ function HeroSection() {
     noWelcome: { opacity: 1, filter: "blur(0px)" },
   };
 
-  const getTransition = (
-    postDelay: number,
-    noDelay: number,
-    postDuration = 0.5,
-    noDuration = 0.3,
-  ) => ({
-    delay: showWelcome ? postDelay : noDelay,
-    duration: showWelcome ? postDuration : noDuration,
-  });
-
   return (
-    <section className="h-full">
-      <div className="pt-4 w-full h-full max-w-[90%] mx-auto md:grid grid-cols-[auto_1fr] grid-rows-[auto_1fr]">
-        <div className="flex">
-          <motion.h2
-            className="font-lora text-9xl font-bold tracking-widest"
-            initial="initial"
-            animate={showWelcome ? "postWelcome" : "noWelcome"}
-            variants={variants}
-            transition={getTransition(2, 0.3)}
-          >
-            OBRAS
-          </motion.h2>
-          <motion.span
-            className="text-4xl"
-            initial="initial"
-            animate={showWelcome ? "postWelcome" : "noWelcome"}
-            variants={variants}
-            transition={getTransition(2, 0.3)}
-          >
-            (<span className="text-3xl">{works.length}</span>)
-          </motion.span>
-        </div>
-
-        <motion.p
-          className="font-inter text-2xl text-balance text-right tracking-tighter relative lg:min-w-[16.3vw] lg:max-w-[16.3vw]"
+    <section className="h-full grow overflow-hidden">
+      <div className="pt-4 w-full h-full max-w-[90%] mx-auto md:grid grid-cols-1 md:grid-cols-[auto_1fr] grid-rows-[auto_1fr]">
+        <motion.div
           initial="initial"
           animate={showWelcome ? "postWelcome" : "noWelcome"}
           variants={variants}
-          transition={getTransition(2, 0.3, 0.7, 0.7)}
+          transition={getTransition(showWelcome, 2, 0.3)}
+          className="flex"
         >
-          <span className="flex items-center h-full justify-end">
+          <h2 className="titles-text">TRABAJOS</h2>
+          <span className="text-2xl lg:text-4xl">
+            (<span className="text-xl lg:text-3xl">{works.length}</span>)
+          </span>
+        </motion.div>
+
+        <motion.p
+          className="subtitles-text section-20vh py-6 w-full md:justify-self-end"
+          initial="initial"
+          animate={showWelcome ? "postWelcome" : "noWelcome"}
+          variants={variants}
+          transition={getTransition(showWelcome, 2, 0.3, 0.7, 0.7)}
+        >
+          <span>
             Muebles de madera y melamina con diseños personalizados.
             <br /> Calidad, estilo y funcionalidad en cada pieza.
           </span>
@@ -71,8 +54,8 @@ function HeroSection() {
           initial="initial"
           animate={showWelcome ? "postWelcome" : "noWelcome"}
           variants={projectsVariants}
-          transition={getTransition(2.2, 0.5)}
-          className="min-h-0 min-w-0"
+          transition={getTransition(showWelcome, 2.2, 0.5)}
+          className="min-h-0 min-w-0 md:col-span-2 lg:col-span-1 h-full overflow-x-hidden px-4 sm:px-6 md:px-12"
         >
           <ProjectsCarousel works={works} />
         </motion.div>
