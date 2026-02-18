@@ -9,7 +9,12 @@ import {
 
 import Image from "next/image";
 
-function ProjectsCarousel({ works }: { works: WorkType[] }) {
+interface ProjectsCarouselProps {
+  works: WorkType[];
+  onWorkClick?: (work: WorkType, triggerEl: HTMLElement | null) => void;
+}
+
+function ProjectsCarousel({ works, onWorkClick }: ProjectsCarouselProps) {
   return (
     <Carousel className="h-full w-full">
       <CarouselContent className="h-full">
@@ -18,7 +23,18 @@ function ProjectsCarousel({ works }: { works: WorkType[] }) {
             className="basis-3/4 md:basis-1/3 group cursor-pointer"
             key={work.id}
           >
-            <div className="flex flex-col h-full opacity-100 transition-all duration-400 bg-light-gray/10 group-hover:bg-light-gray/20 border border-base-gray/20 p-2 gap-2">
+            <div
+              role="button"
+              tabIndex={0}
+              onClick={(e) => onWorkClick?.(work, e.currentTarget)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  onWorkClick?.(work, e.currentTarget);
+                }
+              }}
+              className="flex flex-col h-full opacity-100 transition-all duration-400 bg-light-gray/10 group-hover:bg-light-gray/20 border border-base-gray/20 p-2 gap-2"
+            >
               <div>
                 <span className="shrink-0 text-sm font-inter w-fit">
                   ({String(i + 1).padStart(2, "0")})

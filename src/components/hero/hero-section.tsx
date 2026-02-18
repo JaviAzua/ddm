@@ -1,13 +1,38 @@
 "use client";
 
 import { works } from "@/app/data/data";
+import type { WorkType } from "@/app/data/data";
 import ProjectsCarousel from "./projects-carousel";
+import WorkModal from "./work-modal";
 import { motion } from "framer-motion";
 import { useAnimation } from "@/context/animation-context";
 import { getTransition } from "@/utils";
+import { useState, useRef, useCallback } from "react";
 
 function HeroSection() {
   const { showWelcome } = useAnimation();
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedWork, setSelectedWork] = useState<WorkType | null>(null);
+  const lastClickedItemRef = useRef<HTMLElement | null>(null);
+
+  const handleWorkClick = useCallback((work: WorkType, triggerEl?: HTMLElement | null) => {
+    lastClickedItemRef.current = triggerEl ?? null;
+    setSelectedWork(work);
+    setModalOpen(true);
+    if (typeof window !== "undefined") {
+      window.history.pushState({}, "", `/trabajos/${work.id}`);
+    }
+  }, []);
+
+  const handleModalOpenChange = useCallback((open: boolean) => {
+    setModalOpen(open);
+    if (!open) {
+      setSelectedWork(null);
+      if (typeof window !== "undefined") {
+        window.history.pushState({}, "", window.location.pathname.replace(/\/trabajos\/[^/]+$/, "") || "/");
+      }
+    }
+  }, []);
 
   const variants = {
     initial: { opacity: 0, filter: "blur(10px)", y: -50 },
@@ -57,10 +82,16 @@ function HeroSection() {
           transition={getTransition(showWelcome, 2.2, 0.5)}
           className="min-h-0 min-w-0 md:col-span-2 lg:col-span-1 h-full overflow-x-hidden px-4 sm:px-6 md:px-12"
         >
-          <ProjectsCarousel works={works} />
+          <ProjectsCarousel works={works} onWorkClick={handleWorkClick} />
         </motion.div>
         <div className="hidden lg:block" />
       </div>
+      <WorkModal
+        work={selectedWork}
+        open={modalOpen}
+        onOpenChange={handleModalOpenChange}
+        onCloseFocusRef={lastClickedItemRef}
+      />
     </section>
   );
 }
