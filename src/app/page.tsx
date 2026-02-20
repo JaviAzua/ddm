@@ -1,5 +1,5 @@
 import HeroSection from "@/components/hero/hero-section";
-import Navbar from "@/components/navbar/navbar";
+
 import ContactSection from "@/components/contact/contact-form";
 
 export default function Home() {
@@ -10,7 +10,7 @@ export default function Home() {
           DDM Bariloche - web de muebles a medida en madera y melamina con
           diseños personalizados en la ciudad de Bariloche, Argentina
         </h1>
-        <Navbar />
+
         <HeroSection />
 
         {/* <BaseAnimation />
@@ -22,6 +22,21 @@ export default function Home() {
       <WorksSection />
       <ContactForm /> */}
       </main>
+
+      <section
+        id="nosotros"
+        className="max-w-[90%] mx-auto py-16 md:py-24 scroll-mt-20"
+      >
+        <h2 className="font-montserrat font-bold text-2xl md:text-3xl text-base-black dark:text-base-white mb-4">
+          Sobre nosotros
+        </h2>
+        <p className="text-base-black/80 dark:text-base-white/80 max-w-prose font-inter">
+          DDM Bariloche se dedica a la fabricación de muebles a medida en madera
+          y melamina. Diseños personalizados, calidad y atención al detalle en
+          cada proyecto en Bariloche y la región.
+        </p>
+      </section>
+
       <ContactSection />
     </>
   );
