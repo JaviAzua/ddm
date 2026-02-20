@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function AdminPage() {
   return (
     <div>
@@ -8,6 +10,16 @@ export default function AdminPage() {
         Aquí podrás gestionar los productos. Esta sección se irá completando en
         los siguientes pasos.
       </p>
+      <ul className="mt-6 flex flex-col gap-2">
+        <li>
+          <Link
+            href="/admin/trabajos"
+            className="inline-flex items-center gap-2 rounded-md border border-[hsl(var(--border))] bg-[hsl(var(--card))] px-4 py-3 text-base-black hover:bg-[hsl(var(--accent))] dark:text-base-white dark:hover:bg-[hsl(var(--accent))]"
+          >
+            Trabajos
+          </Link>
+        </li>
+      </ul>
     </div>
   );
 }
