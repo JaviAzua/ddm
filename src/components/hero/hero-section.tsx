@@ -1,6 +1,6 @@
 "use client";
 
-import { works } from "@/app/data/data";
+import { works as localWorks } from "@/app/data/data";
 import type { WorkType } from "@/app/data/data";
 import ProjectsCarousel from "./projects-carousel";
 import WorkModal from "./work-modal";
@@ -8,28 +8,61 @@ import { motion } from "framer-motion";
 import { useAnimation } from "@/context/animation-context";
 import { getTransition } from "@/utils";
 import { useState, useRef, useCallback } from "react";
+import { getWorkBySlug } from "@/app/actions/works";
 
-function HeroSection() {
+export interface HeroSectionProps {
+  /** When true, use `works` from props (fetched). When false, use local data from data.ts */
+  useFetchedData?: boolean;
+  /** Fetched works (only first image each). Required when useFetchedData is true. */
+  works?: WorkType[];
+}
+
+function HeroSection({
+  useFetchedData = false,
+  works: fetchedWorks,
+}: HeroSectionProps = {}) {
+  const works = useFetchedData ? (fetchedWorks ?? []) : localWorks;
+
   const { showWelcome } = useAnimation();
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedWork, setSelectedWork] = useState<WorkType | null>(null);
+  const [modalWorkLoading, setModalWorkLoading] = useState(false);
   const lastClickedItemRef = useRef<HTMLElement | null>(null);
 
-  const handleWorkClick = useCallback((work: WorkType, triggerEl?: HTMLElement | null) => {
-    lastClickedItemRef.current = triggerEl ?? null;
-    setSelectedWork(work);
-    setModalOpen(true);
-    if (typeof window !== "undefined") {
-      window.history.pushState({}, "", `/trabajos/${work.id}`);
-    }
-  }, []);
+  const handleWorkClick = useCallback(
+    async (work: WorkType, triggerEl?: HTMLElement | null) => {
+      lastClickedItemRef.current = triggerEl ?? null;
+      if (useFetchedData) {
+        setModalWorkLoading(true);
+        setSelectedWork(work);
+        setModalOpen(true);
+        try {
+          const full = await getWorkBySlug(work.id);
+          setSelectedWork(full ?? work);
+        } finally {
+          setModalWorkLoading(false);
+        }
+      } else {
+        setSelectedWork(work);
+        setModalOpen(true);
+      }
+      if (typeof window !== "undefined") {
+        window.history.pushState({}, "", `/trabajos/${work.id}`);
+      }
+    },
+    [useFetchedData],
+  );
 
   const handleModalOpenChange = useCallback((open: boolean) => {
     setModalOpen(open);
     if (!open) {
       setSelectedWork(null);
       if (typeof window !== "undefined") {
-        window.history.pushState({}, "", window.location.pathname.replace(/\/trabajos\/[^/]+$/, "") || "/");
+        window.history.pushState(
+          {},
+          "",
+          window.location.pathname.replace(/\/trabajos\/[^/]+$/, "") || "/",
+        );
       }
     }
   }, []);
@@ -91,6 +124,7 @@ function HeroSection() {
         open={modalOpen}
         onOpenChange={handleModalOpenChange}
         onCloseFocusRef={lastClickedItemRef}
+        loading={modalWorkLoading}
       />
     </section>
   );

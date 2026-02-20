@@ -19,6 +19,8 @@ interface WorkModalProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
   onCloseFocusRef?: React.RefObject<HTMLElement | null>;
+  /** Show loading state (e.g. while fetching full work with all images) */
+  loading?: boolean;
 }
 
 const ZOOM_LEVEL = 2.2;
@@ -29,6 +31,7 @@ const WorkModal: React.FC<WorkModalProps> = ({
   open,
   onOpenChange,
   onCloseFocusRef,
+  loading = false,
 }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -130,6 +133,11 @@ const WorkModal: React.FC<WorkModalProps> = ({
         onPointerDownOutside={() => handleOpenChange(false)}
         onEscapeKeyDown={() => handleOpenChange(false)}
       >
+        {loading && (
+          <div className="absolute inset-0 z-20 flex items-center justify-center bg-base-black/70 backdrop-blur-sm">
+            <span className="text-base-white font-inter">Cargando…</span>
+          </div>
+        )}
         <DialogTitle className="sr-only">
           {work.title} - Detalle del trabajo
         </DialogTitle>

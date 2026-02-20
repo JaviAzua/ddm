@@ -14,60 +14,57 @@ type UploadProps = {
   maxSizeMB?: number;
 };
 
+function getFileExtension(file: File): string {
+  const name = file.name;
+  if (name.includes(".")) {
+    const ext = name.slice(name.lastIndexOf(".") + 1).toLowerCase();
+    if (ext && /^[a-z0-9]+$/.test(ext)) return ext;
+  }
+  const mime = file.type?.toLowerCase() ?? "";
+  if (mime.includes("jpeg") || mime.includes("jpg")) return "jpg";
+  if (mime.includes("png")) return "png";
+  if (mime.includes("webp")) return "webp";
+  if (mime.includes("gif")) return "gif";
+  return "jpg";
+}
+
 export const uploadImage = async ({
   file,
   bucket,
   folder,
   maxSizeMB = 2,
 }: UploadProps) => {
-  console.log("uploadImage called with:", { bucket, folder, maxSizeMB });
-
   if (!file || !bucket) {
-    console.error("Missing file or bucket:", { file: !!file, bucket });
     return { imageUrl: "", error: "Missing file or bucket" };
   }
 
-  const fileName = file.name;
-  const fileExtension = fileName.slice(
-    ((fileName.lastIndexOf(".") - 1) >>> 0) + 2,
-  );
-  const path = `${folder ? folder + "/" : ""}${uuidv4()}.${fileExtension}`;
+  const ext = getFileExtension(file);
+  const path = `${folder ? folder + "/" : ""}${uuidv4()}.${ext}`;
 
-  console.log("Generated path:", path);
-
+  let fileToUpload = file;
   try {
-    file = await imageCompression(file, {
-      maxSizeMB: maxSizeMB,
-    });
-    console.log("Image compressed successfully");
-  } catch (error) {
-    console.error("Image compression failed:", error);
-    return { imageUrl: "", error: "Image compression failed" };
+    fileToUpload = await imageCompression(file, { maxSizeMB });
+  } catch {
+    fileToUpload = file;
   }
 
   const storage = getStorage();
-
   if (!storage) {
-    console.error("Storage not initialized");
     return { imageUrl: "", error: "Storage not initialized" };
   }
 
-  console.log("Uploading to storage:", { bucket, path });
-  const { data, error } = await storage.from(bucket).upload(path, file);
+  const { data, error } = await storage.from(bucket).upload(path, fileToUpload, {
+    contentType: fileToUpload.type || file.type,
+  });
 
   if (error) {
-    console.error("Image upload failed:", error);
-    return { imageUrl: "", error: `Image upload failed: ${error.message}` };
+    return { imageUrl: "", error: error.message };
   }
-
   if (!data?.path) {
-    console.error("No path returned from upload");
     return { imageUrl: "", error: "No path returned from upload" };
   }
 
   const imageUrl = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/${bucket}/${data.path}`;
-  console.log("Generated image URL:", imageUrl);
-
   return { imageUrl, error: "" };
 };
 
@@ -77,7 +74,6 @@ export const deleteImage = async (imageUrl: string) => {
   }
 
   const storage = getStorage();
-
   if (!storage) {
     return { data: null, error: "Storage not initialized" };
   }
@@ -96,6 +92,44 @@ export const deleteImage = async (imageUrl: string) => {
   const path = bucketAndPathString.slice(firstSlashIndex + 1);
 
   const { data, error } = await storage.from(bucket).remove([path]);
-
   return { data, error };
+};
+
+/**
+ * List all file paths under a folder (recursive) and remove them.
+ * Use for deleting a work's folder: deleteFolder("assets", "trabajos/my-slug")
+ */
+export const deleteFolder = async (
+  bucket: string,
+  folderPath: string,
+): Promise<{ error: string | null }> => {
+  const storage = getStorage();
+  if (!storage) {
+    return { error: "Storage not initialized" };
+  }
+
+  const prefix = folderPath.replace(/\/$/, "");
+  const paths: string[] = [];
+
+  const listRecursive = async (path: string): Promise<void> => {
+    const { data, error } = await storage.from(bucket).list(path, {
+      limit: 1000,
+    });
+    if (error) return;
+    for (const item of data ?? []) {
+      const fullPath = path ? `${path}/${item.name}` : item.name;
+      const isFolder = "id" in item ? item.id == null : true;
+      if (isFolder) {
+        await listRecursive(fullPath);
+      } else {
+        paths.push(fullPath);
+      }
+    }
+  };
+
+  await listRecursive(prefix);
+  if (paths.length === 0) return { error: null };
+
+  const { error } = await storage.from(bucket).remove(paths);
+  return { error: error?.message ?? null };
 };

@@ -1,8 +1,13 @@
 import HeroSection from "@/components/hero/hero-section";
-
 import ContactSection from "@/components/contact/contact-form";
+import { getWorksForHero } from "./actions/works";
 
-export default function Home() {
+/** Set to true to load works from Supabase (1 image in list, full work when modal opens). False = use local data from data.ts */
+const USE_FETCHED_WORKS = false;
+
+export default async function Home() {
+  const works = USE_FETCHED_WORKS ? await getWorksForHero() : undefined;
+
   return (
     <>
       <main className="flex flex-col h-screen">
@@ -11,7 +16,7 @@ export default function Home() {
           diseños personalizados en la ciudad de Bariloche, Argentina
         </h1>
 
-        <HeroSection />
+        <HeroSection useFetchedData={USE_FETCHED_WORKS} works={works} />
 
         {/* <BaseAnimation />
       <div className="pattern-cross pattern-gray-500 pattern-bg-uiwhite pattern-size-8 pattern-opacity-10 h-full w-full fixed top-0 left-0 -z-10"></div>
