@@ -21,6 +21,9 @@ interface WorkModalProps {
   onCloseFocusRef?: React.RefObject<HTMLElement | null>;
 }
 
+const ZOOM_LEVEL = 2.2;
+const LENS_SIZE = 200;
+
 const WorkModal: React.FC<WorkModalProps> = ({
   work,
   open,
@@ -29,6 +32,13 @@ const WorkModal: React.FC<WorkModalProps> = ({
 }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const contentRef = useRef<HTMLDivElement>(null);
+  const imageContainerRef = useRef<HTMLDivElement>(null);
+  const [hoverState, setHoverState] = useState<{
+    active: boolean;
+    x: number;
+    y: number;
+    rect: { width: number; height: number } | null;
+  }>({ active: false, x: 0, y: 0, rect: null });
 
   const images = work?.images ?? [];
   const currentImage = images[currentImageIndex];
@@ -74,6 +84,11 @@ const WorkModal: React.FC<WorkModalProps> = ({
     }
   }, [open, work?.id]);
 
+  // Reset hover zoom when changing image
+  useEffect(() => {
+    setHoverState((s) => ({ ...s, active: false }));
+  }, [currentImageIndex]);
+
   const handleOpenChange = useCallback(
     (next: boolean) => {
       if (!next && onCloseFocusRef?.current) {
@@ -83,6 +98,27 @@ const WorkModal: React.FC<WorkModalProps> = ({
     },
     [onOpenChange, onCloseFocusRef],
   );
+
+  const handleImageMouseMove = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      const el = imageContainerRef.current;
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      setHoverState({
+        active: true,
+        x,
+        y,
+        rect: { width: rect.width, height: rect.height },
+      });
+    },
+    [],
+  );
+
+  const handleImageMouseLeave = useCallback(() => {
+    setHoverState((s) => ({ ...s, active: false }));
+  }, []);
 
   if (!work) return null;
 
@@ -166,14 +202,63 @@ const WorkModal: React.FC<WorkModalProps> = ({
                 transition={{ duration: 0.25 }}
                 className="relative w-full h-full flex items-center justify-center"
               >
-                <div className="relative max-w-full max-h-full w-auto h-auto">
+                <div
+                  ref={imageContainerRef}
+                  onMouseMove={handleImageMouseMove}
+                  onMouseLeave={handleImageMouseLeave}
+                  className="relative max-w-full max-h-full w-auto h-auto cursor-zoom-in overflow-visible"
+                >
                   <Image
                     src={currentImage.url || "/placeholder.svg"}
                     alt={`${work.title} - Imagen ${currentImageIndex + 1}`}
                     width={1200}
                     height={800}
-                    className="object-contain max-h-[50vh] md:max-h-[60vh] w-auto h-auto"
+                    className="object-contain max-h-[50vh] md:max-h-[60vh] w-auto h-auto select-none pointer-events-none"
                   />
+                  {/* Focal zoom lens on hover */}
+                  {hoverState.active &&
+                    hoverState.rect &&
+                    (() => {
+                      const { width: rw, height: rh } = hoverState.rect;
+                      const lensLeft = Math.max(
+                        0,
+                        Math.min(hoverState.x - LENS_SIZE / 2, rw - LENS_SIZE),
+                      );
+                      const lensTop = Math.max(
+                        0,
+                        Math.min(hoverState.y - LENS_SIZE / 2, rh - LENS_SIZE),
+                      );
+                      return (
+                        <motion.div
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          exit={{ opacity: 0, scale: 0.8 }}
+                          transition={{ duration: 0.15 }}
+                          className="absolute pointer-events-none rounded-full border-2 border-white/80 bg-white/5 shadow-2xl overflow-hidden"
+                          style={{
+                            width: LENS_SIZE,
+                            height: LENS_SIZE,
+                            left: lensLeft,
+                            top: lensTop,
+                            boxShadow:
+                              "0 0 0 1px rgba(255,255,255,0.2), 0 25px 50px -12px rgba(0,0,0,0.5)",
+                          }}
+                        >
+                          <div
+                            className="absolute bg-cover bg-no-repeat"
+                            style={{
+                              width: hoverState.rect.width * ZOOM_LEVEL,
+                              height: hoverState.rect.height * ZOOM_LEVEL,
+                              left: LENS_SIZE / 2 - hoverState.x * ZOOM_LEVEL,
+                              top: LENS_SIZE / 2 - hoverState.y * ZOOM_LEVEL,
+                              backgroundImage: `url(${currentImage.url || "/placeholder.svg"})`,
+                              backgroundSize: `${hoverState.rect.width * ZOOM_LEVEL}px ${hoverState.rect.height * ZOOM_LEVEL}px`,
+                              backgroundPosition: "0 0",
+                            }}
+                          />
+                        </motion.div>
+                      );
+                    })()}
                 </div>
               </motion.div>
             )}
