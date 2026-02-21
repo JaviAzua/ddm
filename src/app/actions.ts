@@ -10,7 +10,7 @@ const ADMIN_SESSION_COOKIE = "admin_session";
 export async function setHasVisited() {
   const cookieStore = await cookies();
   cookieStore.set("hasVisited", "true", {
-    maxAge: 60 * 60 * 24 * 365,
+    maxAge: 60 * 60 * 16,
     path: "/",
     httpOnly: true,
     sameSite: "strict",
