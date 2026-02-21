@@ -1,10 +1,9 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import WhatsAppLogo from "./whatsapp-logo";
-import { InstagramLogo } from "./instagram-logo";
 import DDMLogo from "@/components/ddm-logo";
+import { InstagramLogo } from "./instagram-logo";
+import WhatsAppLogo from "./whatsapp-logo";
 
 function Footer() {
   return (

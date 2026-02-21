@@ -2,7 +2,7 @@ import HeroSection from "@/components/hero/hero-section";
 import ContactSection from "@/components/contact/contact-form";
 import { getWorksForHero } from "./actions/works";
 import HowSection from "@/components/how-section/how-section";
-import Footer from "./components/footer";
+import Footer from "../components/footer/footer";
 import Navbar from "@/components/navbar/navbar";
 
 const USE_FETCHED_WORKS = false;

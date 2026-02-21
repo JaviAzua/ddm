@@ -1,11 +1,46 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import DDMLogo from "../ddm-logo";
 import BurguerMenuIcon from "./burguer-menu-icon";
 import { useAnimation } from "@/context/animation-context";
+
+const menuPanelVariants = {
+  closed: {
+    opacity: 0,
+    y: "-100%",
+    transition: {
+      duration: 0.35,
+      ease: [0.4, 0, 0.2, 1],
+      when: "afterChildren",
+    },
+  },
+  open: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.4,
+      ease: [0.4, 0, 0.2, 1],
+      staggerChildren: 0.06,
+      delayChildren: 0.08,
+    },
+  },
+};
+
+const menuItemVariants = {
+  closed: {
+    opacity: 0,
+    y: -8,
+    transition: { duration: 0.2, ease: [0.4, 0, 0.2, 1] },
+  },
+  open: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.3, ease: [0.4, 0, 0.2, 1] },
+  },
+};
 
 const navLinkClass =
   "relative font-montserrat cursor-pointer tracking-wide py-2 after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-current after:transition-[width] after:duration-300 hover:after:w-full";
@@ -20,7 +55,12 @@ const scrollTo = (id: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
 };
 
 const navItems = [
-  { href: "#", id: "top", label: "Ir al inicio (trabajos)", text: "Trabajos" },
+  {
+    href: "#",
+    id: "top",
+    label: "Ir al inicio donde se ven los trabajos",
+    text: "Trabajos",
+  },
   {
     href: "#nosotros",
     id: "nosotros",
@@ -52,7 +92,7 @@ const Navbar = () => {
       transition={{ duration: 0.5, delay: showWelcome ? 1.5 : 0.2 }}
       className="sticky top-0 z-50 bg-base-white dark:bg-base-black shadow-sm shadow-base-black/5"
     >
-      <section className="flex justify-between items-center max-w-[95%] mx-auto text-base-black dark:text-base-white">
+      <section className="flex justify-between items-center max-w-[95%] mx-auto text-base-black dark:text-base-white z-10">
         <Link
           href="/"
           aria-label="Ir al inicio"
@@ -96,26 +136,36 @@ const Navbar = () => {
         </button>
       </section>
 
-      {isMenuOpen && (
-        <div
-          id="mobile-nav-menu"
-          role="menu"
-          className="md:hidden px-4 pt-2 pb-4 bg-base-black dark:bg-base-white text-base-white dark:text-base-black"
-        >
-          {navItems.map(({ href, id, label, text }) => (
-            <a
-              key={id}
-              href={href}
-              role="menuitem"
-              onClick={handleNavClick(id)}
-              className="block px-3 py-3 rounded-md text-base font-medium font-montserrat hover:bg-white/10 dark:hover:bg-black/10"
-              aria-label={label}
-            >
-              {text}
-            </a>
-          ))}
-        </div>
-      )}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            key="mobile-nav-menu"
+            variants={menuPanelVariants}
+            initial="closed"
+            animate="open"
+            exit="closed"
+            id="mobile-nav-menu"
+            role="menu"
+            className="md:hidden px-4 pt-2 pb-4 bg-base-black dark:bg-base-white text-base-white dark:text-base-black absolute w-full text-right left-0 right-0 top-full origin-top"
+          >
+            <div className="flex flex-col gap-1 pt-2">
+              {navItems.map(({ href, id, label, text }) => (
+                <motion.div key={id} variants={menuItemVariants}>
+                  <Link
+                    href={href}
+                    role="menuitem"
+                    onClick={handleNavClick(id)}
+                    className="block py-[5vh] rounded-md font-medium hover:bg-white/10 dark:hover:bg-black/10 text-center font-lora text-2xl font transition-colors"
+                    aria-label={label}
+                  >
+                    {text.toUpperCase()}
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.nav>
   );
 };
