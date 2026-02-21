@@ -7,8 +7,11 @@ import WorkModal from "./work-modal";
 import { motion } from "framer-motion";
 import { useAnimation } from "@/context/animation-context";
 import { getTransition } from "@/utils";
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { getWorkBySlug } from "@/app/actions/works";
+
+const TRABAJO_PARAM = "trabajo";
 
 export interface HeroSectionProps {
   useFetchedData?: boolean;
@@ -21,11 +24,29 @@ function HeroSection({
 }: HeroSectionProps = {}) {
   const works = useFetchedData ? (fetchedWorks ?? []) : localWorks;
 
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const { showWelcome } = useAnimation();
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedWork, setSelectedWork] = useState<WorkType | null>(null);
   const [modalWorkLoading, setModalWorkLoading] = useState(false);
   const lastClickedItemRef = useRef<HTMLElement | null>(null);
+
+  // Open modal when landing with ?trabajo=id (shared link or reload)
+  useEffect(() => {
+    const trabajoId = searchParams.get(TRABAJO_PARAM);
+    if (!trabajoId || !works.length) return;
+    const work = works.find((w) => w.id === trabajoId);
+    if (!work) return;
+    setSelectedWork(work);
+    setModalOpen(true);
+    if (useFetchedData) {
+      setModalWorkLoading(true);
+      getWorkBySlug(work.id)
+        .then((full) => setSelectedWork(full ?? work))
+        .finally(() => setModalWorkLoading(false));
+    }
+  }, [searchParams, useFetchedData, works]);
 
   const handleWorkClick = useCallback(
     async (work: WorkType, triggerEl?: HTMLElement | null) => {
@@ -44,26 +65,23 @@ function HeroSection({
         setSelectedWork(work);
         setModalOpen(true);
       }
-      if (typeof window !== "undefined") {
-        window.history.pushState({}, "", `/trabajos/${work.id}`);
-      }
+      router.replace(`/?${TRABAJO_PARAM}=${encodeURIComponent(work.id)}`, {
+        scroll: false,
+      });
     },
-    [useFetchedData],
+    [useFetchedData, router],
   );
 
-  const handleModalOpenChange = useCallback((open: boolean) => {
-    setModalOpen(open);
-    if (!open) {
-      setSelectedWork(null);
-      if (typeof window !== "undefined") {
-        window.history.pushState(
-          {},
-          "",
-          window.location.pathname.replace(/\/trabajos\/[^/]+$/, "") || "/",
-        );
+  const handleModalOpenChange = useCallback(
+    (open: boolean) => {
+      setModalOpen(open);
+      if (!open) {
+        setSelectedWork(null);
+        router.replace("/", { scroll: false });
       }
-    }
-  }, []);
+    },
+    [router],
+  );
 
   const variants = {
     initial: { opacity: 0, filter: "blur(10px)", y: -50 },
