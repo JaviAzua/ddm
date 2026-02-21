@@ -2,12 +2,10 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import "./globals.css";
 import { config } from "../../env";
-import Footer from "./components/footer";
 import { Toaster } from "react-hot-toast";
 import { getHasVisited } from "./actions";
 import { AnimationProvider } from "@/context/animation-context";
 import { WelcomeAnimation } from "@/components/welcome-animation";
-import Navbar from "@/components/navbar/navbar";
 
 export const metadata: Metadata = {
   title: "DDM Bariloche | Muebles a medida",
@@ -102,10 +100,9 @@ export default async function RootLayout({
         <Suspense fallback={null}>
           <AnimationProvider initialHasVisited={hasVisited}>
             <WelcomeAnimation />
-            <Navbar />
+
             {children}
             <Toaster />
-            <Footer />
           </AnimationProvider>
         </Suspense>
       </body>

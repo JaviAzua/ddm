@@ -2,6 +2,8 @@ import HeroSection from "@/components/hero/hero-section";
 import ContactSection from "@/components/contact/contact-form";
 import { getWorksForHero } from "./actions/works";
 import HowSection from "@/components/how-section/how-section";
+import Footer from "./components/footer";
+import Navbar from "@/components/navbar/navbar";
 
 const USE_FETCHED_WORKS = false;
 
@@ -10,6 +12,7 @@ export default async function Home() {
 
   return (
     <main>
+      <Navbar />
       <h1 className="sr-only">
         DDM Bariloche - web de muebles a medida en madera y melamina con diseños
         personalizados en la ciudad de Bariloche, Argentina
@@ -21,6 +24,7 @@ export default async function Home() {
         <HowSection />
       </div>
       <ContactSection />
+      <Footer />
     </main>
   );
 }
