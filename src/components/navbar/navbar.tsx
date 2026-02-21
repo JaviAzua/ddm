@@ -20,19 +20,30 @@ const scrollTo = (id: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
 };
 
 const navItems = [
-  { href: "#", id: "top", label: "Ir al inicio", text: "Inicio" },
-  { href: "#nosotros", id: "nosotros", label: "Ir a sobre nosotros", text: "Nosotros" },
-  { href: "#contacto", id: "contacto", label: "Ir a contacto", text: "Contacto" },
+  { href: "#", id: "top", label: "Ir al inicio (trabajos)", text: "Trabajos" },
+  {
+    href: "#nosotros",
+    id: "nosotros",
+    label: "Ir a sobre nosotros",
+    text: "Nosotros",
+  },
+  {
+    href: "#contacto",
+    id: "contacto",
+    label: "Ir a contacto",
+    text: "Contacto",
+  },
 ] as const;
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { showWelcome } = useAnimation();
 
-  const handleNavClick = (id: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
-    scrollTo(id)(e);
-    setIsMenuOpen(false);
-  };
+  const handleNavClick =
+    (id: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
+      scrollTo(id)(e);
+      setIsMenuOpen(false);
+    };
 
   return (
     <motion.nav

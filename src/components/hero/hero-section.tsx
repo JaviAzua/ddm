@@ -11,9 +11,7 @@ import { useState, useRef, useCallback } from "react";
 import { getWorkBySlug } from "@/app/actions/works";
 
 export interface HeroSectionProps {
-  /** When true, use `works` from props (fetched). When false, use local data from data.ts */
   useFetchedData?: boolean;
-  /** Fetched works (only first image each). Required when useFetchedData is true. */
   works?: WorkType[];
 }
 
