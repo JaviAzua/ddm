@@ -50,7 +50,7 @@ const Navbar = () => {
       initial={{ opacity: 0, y: -50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: showWelcome ? 1.5 : 0.2 }}
-      className="sticky top-0 z-50 bg-base-white dark:bg-base-black"
+      className="sticky top-0 z-50 bg-base-white dark:bg-base-black shadow-sm shadow-base-black/5"
     >
       <section className="flex justify-between items-center max-w-[95%] mx-auto text-base-black dark:text-base-white">
         <Link
