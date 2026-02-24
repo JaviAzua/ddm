@@ -1,3 +1,4 @@
+import { unstable_cache } from "next/cache";
 import HeroSection from "@/components/hero/hero-section";
 import ContactSection from "@/components/contact/contact-form";
 import { getWorksForHero } from "./actions/works";
@@ -7,8 +8,17 @@ import Navbar from "@/components/navbar/navbar";
 
 const USE_FETCHED_WORKS = false;
 
+/** 1 week in seconds — backup revalidate if on-demand is never triggered */
+const WORKS_REVALIDATE_SECONDS = 7 * 24 * 60 * 60;
+
+const getCachedWorksForHero = unstable_cache(
+  getWorksForHero,
+  ["works-hero"],
+  { revalidate: WORKS_REVALIDATE_SECONDS, tags: ["works"] },
+);
+
 export default async function Home() {
-  const works = USE_FETCHED_WORKS ? await getWorksForHero() : undefined;
+  const works = USE_FETCHED_WORKS ? await getCachedWorksForHero() : undefined;
 
   return (
     <main>

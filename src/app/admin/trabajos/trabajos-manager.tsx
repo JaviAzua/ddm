@@ -18,6 +18,7 @@ import {
   deleteFolder,
 } from "@/utils/supabase/storage/client";
 import { convertBlobUrlToFile } from "@/lib/utils";
+import { revalidateWorksCache } from "@/app/actions/works";
 
 const BUCKET_ASSETS = "assets";
 
@@ -399,6 +400,7 @@ export function TrabajosManager({
         },
       ]);
       closeForm();
+      await revalidateWorksCache();
     });
   }, [
     form,
@@ -516,6 +518,7 @@ export function TrabajosManager({
         ),
       );
       closeForm();
+      await revalidateWorksCache();
     });
   }, [
     form,
@@ -548,6 +551,7 @@ export function TrabajosManager({
         }
         setWorks((prev) => prev.filter((w) => w.id !== slug));
         if (editing?.id === slug) closeForm();
+        await revalidateWorksCache();
       });
     },
     [supabase, editing?.id, closeForm],

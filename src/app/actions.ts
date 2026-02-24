@@ -3,7 +3,6 @@
 
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-import { config } from "../../env";
 
 const ADMIN_SESSION_COOKIE = "admin_session";
 

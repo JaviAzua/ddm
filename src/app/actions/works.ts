@@ -1,16 +1,19 @@
 "use server";
 
+import { revalidateTag } from "next/cache";
 import { createClient } from "@/utils/supabase/server";
 import type { WorkType } from "@/app/data/data";
+
+export async function revalidateWorksCache() {
+  revalidateTag("works", "max");
+}
 
 /**
  * Returns works for the hero carousel with only the first image per work.
  */
 export async function getWorksForHero(): Promise<WorkType[]> {
   const supabase = await createClient();
-  const { data, error } = await supabase
-    .from("works_with_details")
-    .select("*");
+  const { data, error } = await supabase.from("works_with_details").select("*");
 
   if (error) {
     console.error("getWorksForHero error:", error);
