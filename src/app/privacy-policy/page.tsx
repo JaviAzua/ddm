@@ -1,5 +1,3 @@
-import React from "react";
-
 const PrivacyTermsPage = () => {
   return (
     <div className="container mx-auto p-6 mt-20">

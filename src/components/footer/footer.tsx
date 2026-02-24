@@ -1,14 +1,14 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import WhatsAppLogo from "./whatsapp-logo";
+import DDMLogo from "@/components/ddm-logo";
 import { InstagramLogo } from "./instagram-logo";
+import WhatsAppLogo from "./whatsapp-logo";
 
 function Footer() {
   return (
-    <footer className="bg-gray-900 text-white">
-      <div className="container mx-auto px-4 py-8 min-h-[30vh] flex flex-col justify-between">
+    <footer className="bg-base-black text-base-white">
+      <div className="container mx-auto p-4 flex flex-col justify-between">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -17,13 +17,7 @@ function Footer() {
             className="mb-6 md:mb-0"
           >
             <Link href="/" aria-label="Home">
-              <Image
-                src="/logo.png"
-                alt="DDM Logo"
-                width={80}
-                height={80}
-                className="rounded-full invert"
-              />
+              <DDMLogo className="w-28" />
             </Link>
           </motion.div>
           <nav className="flex-col gap-2 flex">

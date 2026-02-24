@@ -1,20 +1,40 @@
-import BaseAnimation from "./components/base-animation";
-import ContactForm from "./components/contact-form";
-import HeaderSection from "./components/header-section";
-import ScrollIndicator from "./components/scroll-indicator";
-import WorksSection from "./components/works-section";
+import { unstable_cache } from "next/cache";
+import HeroSection from "@/components/hero/hero-section";
+import ContactSection from "@/components/contact/contact-form";
+import { getWorksForHero } from "./actions/works";
+import HowSection from "@/components/how-section/how-section";
+import Footer from "../components/footer/footer";
+import Navbar from "@/components/navbar/navbar";
 
-export default function Home() {
+const USE_FETCHED_WORKS = false;
+
+/** 1 week in seconds — backup revalidate if on-demand is never triggered */
+const WORKS_REVALIDATE_SECONDS = 7 * 24 * 60 * 60;
+
+const getCachedWorksForHero = unstable_cache(
+  getWorksForHero,
+  ["works-hero"],
+  { revalidate: WORKS_REVALIDATE_SECONDS, tags: ["works"] },
+);
+
+export default async function Home() {
+  const works = USE_FETCHED_WORKS ? await getCachedWorksForHero() : undefined;
+
   return (
-    <main className="flex-grow">
-      <BaseAnimation />
-      <div className="pattern-cross pattern-gray-500 pattern-bg-uiwhite pattern-size-8 pattern-opacity-10 h-full w-full fixed top-0 left-0 -z-10"></div>
-      <div className="h-dvh">
-        <HeaderSection />
-        <ScrollIndicator />
+    <main>
+      <Navbar />
+      <h1 className="sr-only">
+        DDM Bariloche - web de muebles a medida en madera y melamina con diseños
+        personalizados en la ciudad de Bariloche, Argentina
+      </h1>
+      <div className="flex flex-col h-screen">
+        <HeroSection useFetchedData={USE_FETCHED_WORKS} works={works} />
       </div>
-      <WorksSection />
-      <ContactForm />
+      <div className="pt-[10vh]">
+        <HowSection />
+      </div>
+      <ContactSection />
+      <Footer />
     </main>
   );
 }

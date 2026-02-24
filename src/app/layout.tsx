@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import "./globals.css";
 import { config } from "../../env";
-import Navbar from "./components/navbar";
-import Footer from "./components/footer";
 import { Toaster } from "react-hot-toast";
+import { getHasVisited } from "./actions";
+import { AnimationProvider } from "@/context/animation-context";
+import { WelcomeAnimation } from "@/components/welcome-animation";
 
 export const metadata: Metadata = {
   title: "DDM Bariloche | Muebles a medida",
@@ -86,18 +88,23 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const hasVisited = await getHasVisited();
   return (
     <html lang="es">
-      <body className="antialiased flex flex-col min-h-screen overflow-x-hidden">
-        <Navbar />
-        {children}
-        <Footer />
-        <Toaster />
+      <body className="bg-base-white text-base-black dark:text-base-white dark:bg-base-black">
+        <Suspense fallback={null}>
+          <AnimationProvider initialHasVisited={hasVisited}>
+            <WelcomeAnimation />
+
+            {children}
+            <Toaster />
+          </AnimationProvider>
+        </Suspense>
       </body>
     </html>
   );
